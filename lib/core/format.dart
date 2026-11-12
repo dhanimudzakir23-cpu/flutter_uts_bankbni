@@ -1,0 +1,10 @@
+String rupiah(int v, {bool sign = false}) {
+  final s = v.abs().toString();
+  final b = StringBuffer();
+  for (var i = 0; i < s.length; i++) {
+    if (i > 0 && (s.length - i) % 3 == 0) b.write('.');
+    b.write(s[i]);
+  }
+  final p = v < 0 ? '-' : (sign ? '+' : '');
+  return '${p}Rp $b';
+}
